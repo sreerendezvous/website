@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  html {
+    @apply scroll-smooth antialiased;
+  }
+
+  body {
+    @apply bg-earth-900 text-sand-50 font-body;
+    background-image: linear-gradient(to bottom, rgba(29, 25, 24, 0.97), rgba(29, 25, 24, 0.99)),
+                    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23433633' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-none font-body font-light 
+           transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 
+           focus-visible:ring-sand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-earth-900 
+           disabled:pointer-events-none disabled:opacity-50 uppercase tracking-wider;
+  }
+
+  .btn-primary {
+    @apply bg-sand-200 text-earth-900 hover:bg-sand-300;
+  }
+
+  .btn-secondary {
+    @apply bg-earth-800/80 text-sand-50 hover:bg-earth-700/80 backdrop-blur-sm;
+  }
+
+  .btn-outline {
+    @apply border border-sand-300 bg-transparent text-sand-300 hover:bg-earth-800/50;
+  }
+
+  .input {
+    @apply w-full px-3 py-2 bg-earth-800 border border-earth-700 text-sand-100 
+           rounded-none focus:outline-none focus:ring-1 focus:ring-sand-400 
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-sand-300 mb-2;
+  }
+
+  .card {
+    @apply bg-earth-800/50 rounded-lg overflow-hidden transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:translate-y-[-4px] hover:shadow-lg;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-earth-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-earth-600 rounded-full hover:bg-earth-500;
+}
+
+/* Page transitions */
+.page-enter {
+  @apply opacity-0;
+}
+
+.page-enter-active {
+  @apply opacity-100 transition-opacity duration-300;
+}
+
+.page-exit {
+  @apply opacity-100;
+}
+
+.page-exit-active {
+  @apply opacity-0 transition-opacity duration-300;
+}
+
+/* Loading states */
+.loading {
+  @apply animate-pulse bg-earth-800/50;
+}
+
+/* Typography */
+.heading-1 {
+  @apply text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight;
+}
+
+.heading-2 {
+  @apply text-3xl md:text-4xl font-display font-light leading-tight;
+}
+
+.heading-3 {
+  @apply text-2xl md:text-3xl font-display font-light leading-tight;
+}
+
+.body-large {
+  @apply text-lg leading-relaxed text-sand-200;
+}
+
+.body-base {
+  @apply text-base leading-relaxed text-sand-300;
+}
+
+.body-small {
+  @apply text-sm leading-relaxed text-sand-400;
+}
+
+/* Experience description */
+.experience-description {
+  @apply text-base leading-relaxed max-w-none;
+}
+
+.experience-description p {
+  @apply text-sand-300 mb-6 last:mb-0 whitespace-pre-wrap break-words;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.75;
+}
+
+.experience-description ul {
+  @apply list-disc list-inside text-sand-300 space-y-2 mb-6;
+}
+
+.experience-description ol {
+  @apply list-decimal list-inside text-sand-300 space-y-2 mb-6;
+}
+
+.experience-description h2 {
+  @apply text-xl font-display text-sand-100 mb-4 mt-8;
+}
+
+.experience-description h3 {
+  @apply text-lg font-display text-sand-100 mb-3 mt-6;
+}
+
+.experience-description a {
+  @apply text-sand-300 underline hover:text-sand-200 transition-colors;
+}
+
+.experience-description blockquote {
+  @apply border-l-4 border-sand-400/20 pl-4 italic text-sand-300 my-6;
+}
+
+.experience-description code {
+  @apply bg-earth-700/50 px-1.5 py-0.5 rounded text-sm text-sand-200;
+}
+
+.experience-description pre {
+  @apply bg-earth-700/50 p-4 rounded-lg overflow-x-auto my-6;
+}
